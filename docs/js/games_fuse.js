@@ -61,6 +61,7 @@ function createCard(data) {
     div1.setAttribute("data", "fade-up");
     const div2 = document.createElement('div');
     div2.setAttribute("class", "card h-100 shadow-sm");
+    div2.setAttribute("data", "fade-up");
 
     const image = document.createElement("img");
 
