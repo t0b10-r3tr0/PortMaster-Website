@@ -163,3 +163,9 @@ pre {
 .EasyMDEContainer .CodeMirror-focused .CodeMirror-selected {
     background: var(--bs-secondary-bg)
 }
+
+.aos-suppress [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+}
