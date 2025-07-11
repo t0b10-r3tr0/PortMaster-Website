@@ -351,7 +351,7 @@ function createCard(port) {
                 createElement('img', {
                     src: imageUrl,
                     className: 'bd-placeholder-img card-img-top object-fit-contain',
-                    // loading: 'lazy',
+                    loading: 'lazy',
                 }),
             ]),
             createElement('div', { className: 'card-body d-flex flex-column' }, [

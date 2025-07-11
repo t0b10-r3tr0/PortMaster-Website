@@ -17,9 +17,9 @@ window.addEventListener('DOMContentLoaded', async function() {
     updateResult(filterState);
     appElement.replaceChildren(containerElement);
 
-    function updateResult(filterState) {
+    async function updateResult(filterState) {
         const selectedDevices = getSelectedDevices(devices, filterState);
-        updateContainer({
+        await updateContainer({
             cards: getFilteredData(ports, filterState).map(port => {
                 return updateCard(getCard(port), port, selectedDevices, firmwareNames);
             }),
@@ -74,11 +74,11 @@ function createContainer({ attributes, devices, genres, onchange }) {
         createElement('div', { ref: el => containerRefs.list = el, className: 'row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3' }),
     ]);
 
-    function updateContainer({ cards }) {
+    async function updateContainer({ cards }) {
         updateDropdowns();
-
         containerRefs.title.textContent = `${cards.length} Ports Available`;
-        batchReplaceChildren(200, containerRefs.list, cards);
+        await batchReplaceChildren(200, containerRefs.list, cards);
+        if (window.AOS) AOS.refresh(); // Refresh AOS after all cards are in the DOM
     }
 
     return {
