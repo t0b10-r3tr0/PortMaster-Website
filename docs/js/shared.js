@@ -590,8 +590,8 @@ function initializeAOS() {
     if (typeof AOS !== 'undefined') {
         AOS.init({
             offset: 120,
-            delay: 150,
-            duration: 450,
+            delay: 75,
+            duration: 425,
             easing: 'ease-in-out',
             once: false,
             mirror: true,
