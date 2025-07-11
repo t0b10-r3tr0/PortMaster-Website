@@ -400,7 +400,7 @@ function createCard(port) {
                     ]),
                 ]),
             ]),
-        ]),
+        ]).updateElement("data-aos", "fade-up"),
     ]);
 }
 
