@@ -590,11 +590,11 @@ function initializeAOS() {
     if (typeof AOS !== 'undefined') {
         AOS.init({
             offset: 120,
-            delay: 75,
-            duration: 425,
-            easing: 'ease-in-out',
-            once: false,
-            mirror: true,
+            delay: 100,
+            duration: 450,
+            easing: 'ease',
+            once: true,
+            // mirror: true,
             anchorPlacement: 'top-bottom',
         });
     }
