@@ -77,8 +77,17 @@ function createContainer({ attributes, devices, genres, onchange }) {
     async function updateContainer({ cards }) {
         updateDropdowns();
         containerRefs.title.textContent = `${cards.length} Ports Available`;
+        containerRefs.list.classList.add('aos-suppress');
         await batchReplaceChildren(200, containerRefs.list, cards);
-        if (window.AOS) AOS.refresh(); // Refresh AOS after all cards are in the DOM
+
+        // Wait for all images to load
+        await Promise.all(Array.from(containerRefs.list.querySelectorAll('img')).map(img => {
+            if (img.complete) return Promise.resolve();
+            return new Promise(resolve => { img.onload = img.onerror = resolve; });
+        }));
+
+        containerRefs.list.classList.remove('aos-suppress');
+        if (window.AOS) AOS.refresh();
     }
 
     return {
