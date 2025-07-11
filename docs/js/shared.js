@@ -589,9 +589,9 @@ async function showDetailsModal(port, deviceDetails) {
 function initializeAOS() {
     if (typeof AOS !== 'undefined') {
         AOS.init({
-            offest: 120,
-            delay: 300,
-            duration: 500,
+            offset: 120,
+            delay: 150,
+            duration: 450,
             easing: 'ease-in-out',
             once: false,
             mirror: true,
