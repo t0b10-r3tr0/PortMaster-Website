@@ -32,13 +32,12 @@
 <script>
     function initializeAOS() {
       console.log("Initializing AOS");
-      // AOS.init({
-      //   duration: 3000,
-      //   once: true,
-        
-      //   // disable: 'mobile'
-      // });
-      AOS.init();
+      AOS.init({
+        duration: 300,
+        offset: 120,
+        once: true,
+        // disable: 'mobile'
+      });
       console.log("AOS initialized");
     }
     
