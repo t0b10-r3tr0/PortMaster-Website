@@ -80,10 +80,10 @@ function createRecent(item) {
     if (item.attr.image.screenshot !== null) {
         if (item.source.repo == "main") {
             /* Hopefully this works. */
-            source = ("https://raw.githubusercontent.com/PortsMaster/PortMaster-New/main/ports/" +  item.name.replace(".zip","/") + item.attr.image.screenshot);
+            source = ("https://raw.githubusercontent.com/PortsMaster/PortMaster-New/main/ports/" + item.name.replace(".zip", "/") + item.attr.image.screenshot);
         } else if (item.source.repo == "multiverse") {
-            source = ("https://raw.githubusercontent.com/PortsMaster-MV/PortMaster-MV-New/main/ports/" +  item.name.replace(".zip","/") + item.attr.image.screenshot);
-        } 
+            source = ("https://raw.githubusercontent.com/PortsMaster-MV/PortMaster-MV-New/main/ports/" + item.name.replace(".zip", "/") + item.attr.image.screenshot);
+        }
     }
 
     image.src = source;
@@ -121,7 +121,7 @@ function createRecent(item) {
 }
 
 function populateRecentPorts() {
-    jsonData.sort((a,b)=> Date.parse(a.source.date_added) > Date.parse(b.source.date_added) ? -1 :  (Date.parse(a.source.date_added) < Date.parse(b.source.date_added) ? 1 :0))
+    jsonData.sort((a, b) => Date.parse(a.source.date_added) > Date.parse(b.source.date_added) ? -1 : (Date.parse(a.source.date_added) < Date.parse(b.source.date_added) ? 1 : 0))
     for (var key of Object.keys(jsonData.slice(0, 5))) {
 
         createRecent(jsonData[key]);
@@ -157,8 +157,8 @@ async function getPageContent() {
         console.error('Error fetching JSON data:', error);
     }
 
-    articles.sort((a,b)=> Date.parse(a.date) > Date.parse(b.date) ? -1 :  (Date.parse(a.date) < Date.parse(b.date) ? 1 :0))
-      
+    articles.sort((a, b) => Date.parse(a.date) > Date.parse(b.date) ? -1 : (Date.parse(a.date) < Date.parse(b.date) ? 1 : 0))
+
     populateArticles();
     populateRecentPorts();
 
@@ -172,16 +172,15 @@ window.onload = function () {
 
 //#region AOS Initialization
 function initializeAOS() {
-    if (typeof AOS !== 'undefined') {
-        AOS.init({
-            offset: 120,
-            delay: 0,
-            duration: 400,
-            easing: 'ease',
-            once: true,
-            // mirror: true,
-            anchorPlacement: 'top-bottom',
-        });
-    }
+    AOS.init({
+        offset: 120,
+        delay: 0,
+        duration: 400,
+        easing: 'ease',
+        once: true,
+        // mirror: true,
+        anchorPlacement: 'top-bottom',
+    });
+
 }
 //#endregion
