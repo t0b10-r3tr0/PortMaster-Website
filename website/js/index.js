@@ -5,6 +5,7 @@ var articleIndex = 0;
 function populateArticles() {
 
     const articleElement = document.createElement('article');
+    articleElement.setAttribute("data-aos", "fade-up");
     articleElement.setAttribute("class", "blog-post");
 
     const titleElement = document.createElement('h2');
@@ -168,3 +169,19 @@ async function getPageContent() {
 window.onload = function () {
     getPageContent();
 };
+
+//#region AOS Initialization
+function initializeAOS() {
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            offset: 120,
+            delay: 0,
+            duration: 400,
+            easing: 'ease',
+            once: true,
+            // mirror: true,
+            anchorPlacement: 'top-bottom',
+        });
+    }
+}
+//#endregion
